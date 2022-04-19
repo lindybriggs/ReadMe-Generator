@@ -32,8 +32,8 @@ inquirer
             message: 'What kind of license do you have for this project?',
             name: 'license',
             choices: [
-                'GPL',
-                'BSD',
+                'GPLv3',
+                'BSDv3',
                 'MIT'
             ]
         },
@@ -75,9 +75,9 @@ inquirer
         },
     ])
     .then((response) => {
-        let content =`
+        let content = `
 # ${response.projectTitle}
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+${generateLicenseBadge(response)}
 
 ## Description
 
@@ -126,15 +126,38 @@ In terms of contributing to the repo, note the below:
 
 If you have additional questions, please reach out. Below are the best ways to contact me:
 
-    Email: ${response.email}
-    GitHub: ${response.username}
+* You can reach me via email at: ${response.email}
+* Visit my GitHub: [GitHub Repo](https://github.com/${response.username})
 
 
 ## License
 
-> **Note**: This application is covered under an ${response.license} license.
+${generateLicenseText(response)}
 
 `;
 
         fs.writeFile('README.md', content, (error) => console.error(error))
     })
+
+
+function generateLicenseText(response) {
+
+    if (response.license === "MIT") {
+        return "> **Note**: This application is covered under an MIT license."
+    } else if (response.license === "GPLv3") {
+        return "> **Note**: This application is covered under a GPLv3 license."
+    } else {
+        return "> **Note**: This application is covered under a BSDv3 license."
+    }
+}
+
+function generateLicenseBadge(response) {
+
+    if (response.license === "MIT") {
+        return "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)"
+    } else if (response.license === "GPLv3") {
+        return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
+    } else {
+        return "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)"
+    }
+}

@@ -1,10 +1,10 @@
 
-# llksdf
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+# title
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Description
 
-skdf
+describinggggg
 
 
 ## Table of Contents
@@ -21,7 +21,7 @@ skdf
 
 Below is an example of how this application can be used:
 
-sdf
+exampleeee
 
 
 ## Installation
@@ -42,18 +42,18 @@ Run the following to test:
 
 In terms of contributing to the repo, note the below:
 
-    asfd
+    don't contribute
 
 
 ## Questions
 
 If you have additional questions, please reach out. Below are the best ways to contact me:
 
-    Email: asdf
-    GitHub: asdf
+* You can reach me via email at: email@email.com
+* Visit my GitHub: [GitHub Repo](https://github.com/lindybriggs)
 
 
 ## License
 
-> **Note**: This application is covered under an GPL license.
+> **Note**: This application is covered under a GPLv3 license.
 
