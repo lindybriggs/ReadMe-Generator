@@ -13,23 +13,76 @@
 // init();
 
 const fs = require('fs');
+const inquirer = require('inquirer')
 
-let projectTitle = "My Project Title"
-let descriptionBody = "lorem ipsum"
-let install = "To install, simply clone down the repo from GitHub."
-let usageEx = "This application is useful in many ways. For example, students can quickly build README files for assignments."
-let yesContributing = "Suggested contributions are welcomed. Please fork this repo, build a branch to add, commit and push to, and create a pull request in GitHub to submit your suggestions."
-let licenseType = "MIT"
-let emailAddress = "briggs.lindy@yahoo.com"
-let gitHub = "lindybriggs";
-
-fs.writeFile("README.md", `
-# ${projectTitle}
+inquirer
+    .prompt([
+        {
+            type: 'input',
+            message: 'What is your project title?',
+            name: 'projectTitle',
+        },
+        {
+            type: 'input',
+            message: 'What is your project description?',
+            name: 'description',
+        },
+        {
+            type: 'list',
+            message: 'What kind of license do you have for this project?',
+            name: 'license',
+            choices: [
+                'GPL',
+                'BSD',
+                'MIT'
+            ]
+        },
+        {
+            type: 'list',
+            message: 'For installation instructions, what command should be run to install dependencies?',
+            name: 'installation',
+            choices: [
+                'npm i',
+            ]
+        },
+        {
+            type: 'list',
+            message: 'What command should be run to run tests?',
+            name: 'test',
+            choices: [
+                'npm test',
+            ]
+        },
+        {
+            type: 'input',
+            message: 'What is an example of how this project is useful?',
+            name: 'usage',
+        },
+        {
+            type: 'input',
+            message: 'What is your email address?',
+            name: 'email',
+        },
+        {
+            type: 'input',
+            message: 'What is your GitHub username?',
+            name: 'username',
+        },
+        {
+            type: 'input',
+            message: 'What should the user know about contributing to the repo?',
+            name: 'contributing',
+        },
+    ])
+    .then((response) => {
+        let content =`
+# ${response.projectTitle}
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
 
-${descriptionBody}
+${response.description}
+
 
 ## Table of Contents
 
@@ -40,30 +93,48 @@ ${descriptionBody}
 - [Tests](#tests)
 - [Questions](#questions)
 
-## Installation
-
-${install}
 
 ## Usage
 
-${usageEx}
+Below is an example of how this application can be used:
 
-## License
+${response.usage}
 
-Note: This application is covered under an ${licenseType} license.
+
+## Installation
+
+To install necessary dependencies, follow the below command: 
+
+    ${response.installation}
+
+
+## Tests
+
+Run the following to test:
+
+    ${response.test}
+
 
 ## Contributing
 
-${yesContributing}
+In terms of contributing to the repo, note the below:
 
-## Tests
+    ${response.contributing}
+
 
 ## Questions
 
 If you have additional questions, please reach out. Below are the best ways to contact me:
 
-    Email: ${emailAddress}
-    GitHub: ${gitHub}
+    Email: ${response.email}
+    GitHub: ${response.username}
 
-`, (err) =>  err ? console.error(err) : console.log('Commit logged!')
-);
+
+## License
+
+> **Note**: This application is covered under an ${response.license} license.
+
+`;
+
+        fs.writeFile('README.md', content, (error) => console.error(error))
+    })
