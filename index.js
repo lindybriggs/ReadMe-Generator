@@ -136,7 +136,7 @@ ${generateLicenseText(response)}
 
 `;
 
-        fs.writeFile('README.md', content, (error) => console.error(error))
+        fs.writeFile('generatedREADME.md', content, (error) => console.error(error))
     })
 
 
