@@ -2,10 +2,20 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-
 ## About
 
 This application uses the command line to dynamically generate a professionald README.md file based on user input.
+
+## Video Walkthrough / Screenshots
+
+See a video walkthrough of this application's use here: 
+
+* [MP4](https://drive.google.com/file/d/1ktezuFYBvOC5wVaVDoc0cUp1pUYZYmcm/view?usp=sharing)
+* [MOV](https://drive.google.com/file/d/1mD6pliGwJqrr8HMSOYmeHMMKYr3jNq3e/view?usp=sharing)
+
+![Command Line Prompt Example](./Assets/input.png)
+
+![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/101146153/164337758-98e20a70-b29e-48e4-bdb4-aad84a5f3428.gif)
 
 ## Description
 
@@ -30,23 +40,3 @@ This application uses the command line to dynamically generate a professionald R
 ## License
 
 Covered under the [MIT](license.txt) license.
-
-
-
-
-
-
-
-
-
-
-
-record video
-create gif from video
-add gif to readme
-upload video to google drive
-link google drive in readme
-
-submit link to github repo
-submit google drive video link
-submit generatedreadme
