@@ -19,13 +19,13 @@ See a video walkthrough of this application's use here:
 
 ## Description
 
-* Application is invoke upon running the following command: node index.js
+* Application is invoked upon running the following command: node index.js
 
 * 'Require' is used to access the previously installed 'inquirer' module. This allows for a series of prompts to be presented to the user in the command line.
 
-* Users enter or choose the following: a title for their project, description, installation instructions, usage information, contribution guidelines, test instructions, license type, Github account, and email address. 
+* User enters or chooses the following: project title, description, installation instructions, usage information, contribution guidelines, test instructions, license type, Github account, and email address. 
 
-* Upon completition, their responses are then accessed within string interpolation to build content for their personalized markdown file. In addition to the previously stated sections and components, their README will also contain a Table of Contents and a generated license notice and badge. 
+* Upon completition, user responses are accessed within string interpolation to build content for user's personalized markdown file. In addition to the previously stated sections and components, user's README will also contain a Table of Contents and a generated license notice and badge. 
 
 * An 'fs writeFile' function is called to finally generate this README.md file.
 
