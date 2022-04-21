@@ -21,7 +21,7 @@ Accepts user input to dynamically generate a README file for their repo.
 
 Below is an example of how this application can be used:
 
-For a developer who wants to spend less time writing out README files for their projects.
+FOr a developer who wants to spend less time writing out README files for their projects.
 
 
 ## Installation
@@ -42,7 +42,7 @@ Run the following to test:
 
 In terms of contributing to the repo, note the below:
 
-    Contributions will not be accepted. This is a personal project. 
+    Contributions will not be accepted. This is a personal project.
 
 
 ## Questions

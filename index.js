@@ -80,14 +80,14 @@ inquirer
     ])
 // Using promise from .prompt to grab response values.
 // Using string interpolation to build body of md file. Grabbing values from response.
-    .then((response) => {
+    .then(({projectTitle, description, usage, installation, test, contributing, email, username, license}) => {
         let content = `
-# ${response.projectTitle}
-${generateLicenseBadge(response)}
+# ${projectTitle}
+${generateLicenseBadge({license})}
 
 ## Description
 
-${response.description}
+${description}
 
 
 ## Table of Contents
@@ -104,41 +104,41 @@ ${response.description}
 
 Below is an example of how this application can be used:
 
-${response.usage}
+${usage}
 
 
 ## Installation
 
 To install necessary dependencies, follow the below command: 
 
-    ${response.installation}
+    ${installation}
 
 
 ## Tests
 
 Run the following to test:
 
-    ${response.test}
+    ${test}
 
 
 ## Contributing
 
 In terms of contributing to the repo, note the below:
 
-    ${response.contributing}
+    ${contributing}
 
 
 ## Questions
 
 If you have additional questions, please reach out. Below are the best ways to contact me:
 
-* You can reach me via email at: ${response.email}
-* Visit my GitHub: [GitHub Repo](https://github.com/${response.username})
+* You can reach me via email at: ${email}
+* Visit my GitHub: [GitHub Repo](https://github.com/${username})
 
 
 ## License
 
-${generateLicenseText(response)}
+${generateLicenseText({license})}
 
 `;
 // Using writeFile function from fs to generate the md file based on previously defined content..
@@ -146,22 +146,22 @@ ${generateLicenseText(response)}
     })
 
 // Created functions to create text and badge based on license type user selected using if/then statements.
-function generateLicenseText(response) {
+function generateLicenseText({license}) {
 
-    if (response.license === "MIT") {
+    if (license === "MIT") {
         return "> **Note**: This application is covered under an MIT license."
-    } else if (response.license === "GPLv3") {
+    } else if (license === "GPLv3") {
         return "> **Note**: This application is covered under a GPLv3 license."
     } else {
         return "> **Note**: This application is covered under a BSDv3 license."
     }
 }
 
-function generateLicenseBadge(response) {
+function generateLicenseBadge({license}) {
 
-    if (response.license === "MIT") {
+    if (license === "MIT") {
         return "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)"
-    } else if (response.license === "GPLv3") {
+    } else if (license === "GPLv3") {
         return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
     } else {
         return "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)"
